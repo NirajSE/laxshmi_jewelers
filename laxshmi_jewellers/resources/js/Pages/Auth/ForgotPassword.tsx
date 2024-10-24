@@ -19,8 +19,7 @@ export default function ForgotPassword({ status }: { status?: string }) {
     return (
         <GuestLayout>
             <Head title="Forgot Password" />
-
-            <div className="mb-4 text-sm text-gray-600">
+            <div className="mt-3 mb-4 text-sm text-gray-600">
                 Forgot your password? No problem. Just let us know your email
                 address and we will email you a password reset link that will
                 allow you to choose a new one.
@@ -46,7 +45,7 @@ export default function ForgotPassword({ status }: { status?: string }) {
                 <InputError message={errors.email} className="mt-2" />
 
                 <div className="mt-4 flex items-center justify-end">
-                    <PrimaryButton className="ms-4" disabled={processing}>
+                    <PrimaryButton disabled={processing}>
                         Email Password Reset Link
                     </PrimaryButton>
                 </div>

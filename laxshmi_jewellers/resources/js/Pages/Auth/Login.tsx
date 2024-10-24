@@ -9,7 +9,6 @@ import { FormEventHandler } from 'react';
 
 export default function Login({
     status,
-    canResetPassword,
 }: {
     status?: string;
     canResetPassword: boolean;
@@ -57,7 +56,12 @@ export default function Login({
                 </div>
 
                 <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
+                    <div className='flex justify-between'>
+                        <InputLabel htmlFor="password" value="Password" />
+                        <div className="text-sm">
+                            <a href={route('password.request')} className="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
+                        </div>
+                    </div>
 
                     <TextInput
                         id="password"
@@ -88,19 +92,15 @@ export default function Login({
                 </div>
 
                 <div className="mt-4 flex items-center justify-end">
-                    {canResetPassword && (
-                        <Link
-                            href={route('password.request')}
-                            className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                        >
-                            Forgot your password?
-                        </Link>
-                    )}
-
-                    <PrimaryButton className="ms-4" disabled={processing}>
+                    <PrimaryButton className="w-full" disabled={processing}>
                         Log in
                     </PrimaryButton>
                 </div>
+
+                <p className="mt-10 text-center text-sm text-gray-500">
+                    Not a member?
+                    <Link href="/register" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"> Register Now!</Link>
+                </p>
             </form>
         </GuestLayout>
     );
