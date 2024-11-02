@@ -1,17 +1,11 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
+use App\Http\Controllers\GoldRateController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    // return Inertia::render('Welcome', [
-    //     'canLogin' => Route::has('login'),
-    //     'canRegister' => Route::has('register'),
-    //     'laravelVersion' => Application::VERSION,
-    //     'phpVersion' => PHP_VERSION,
-    // ]);
     return redirect()->route('login');
 });
 
@@ -21,14 +15,12 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
 
-    // temp routes
+    // ruban add the container route
     Route::get('/product', function () {
         return Inertia::render('Product/ProductContainer');
     })->name('product');
-
-    Route::get('/product-create', function () {
-        return Inertia::render('Product/CreateProduct');
-    })->name('product-create');
+    Route::resource('gold-rates', GoldRateController::class);
+    Route::get('/get-active-gold-rate', [GoldRateController::class, 'getActiveGoldRate'])->name('get-active-gold-rate');
 
     // profile routes
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
