@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreGoldRateRequest;
 use App\Http\Resources\GoldRateResource;
-use App\Services\GoldRateService;
+use App\Http\Services\GoldRateService;
 use Illuminate\Http\JsonResponse;
 
 class GoldRateController extends Controller

@@ -1,15 +1,15 @@
 <?php 
 
-namespace App\Services;
+namespace App\Http\Services;
 
 use App\Models\GoldRate;
-use App\Repositories\IGoldRateRepository;
+use App\Http\Repositories\GoldRateRepository;
 
 class GoldRateService
 {
     protected $goldRateRepository;
 
-    public function __construct(IGoldRateRepository $goldRateRepository)
+    public function __construct(GoldRateRepository $goldRateRepository)
     {
         $this->goldRateRepository = $goldRateRepository;
     }

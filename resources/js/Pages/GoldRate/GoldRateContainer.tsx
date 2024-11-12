@@ -1,12 +1,17 @@
 import { Head, Link } from '@inertiajs/react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import { useEffect } from 'react';
+import axios from 'axios';
 
-const ProductContainer = () => {
+const baseURL = 'http://localhost:8000/';
+
+const GoldRateContainer = () => {
+
     return (
         <AuthenticatedLayout
             header={
                 <h2 className="text-xl font-semibold leading-tight text-white">
-                    Product
+                    Gold Rates
                 </h2>
             }
         >
@@ -17,10 +22,10 @@ const ProductContainer = () => {
                     <div className="p-6 text-gray-900">
                         <div className="relative overflow-x-auto border border-gray-200 rounded-md p-8">
                             <div className='flex justify-between mb-8'>
-                                <h1 className="text-3xl font-semibold leading-tight text-slate-900">Products</h1>
+                                <h1 className="text-3xl font-semibold leading-tight text-slate-900">Gold Rates</h1>
                                 <Link 
                                     className='flex justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
-                                    href='/product-create'>Add Product</Link>
+                                    href='/create-gold-rates'>Add Gold Rate</Link>
                             </div>
                             <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                 <thead className="text-gray-900 dark:text-gray-900 font-black text-base">
@@ -74,4 +79,4 @@ const ProductContainer = () => {
     )
 }
 
-export default ProductContainer;
+export default GoldRateContainer;

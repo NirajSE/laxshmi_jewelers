@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Repositories\GoldRateRepository;
-use App\Repositories\IGoldRateRepository;
+use App\Http\Repositories\GoldRateRepository;
+use App\Http\Repositories\IGoldRateRepository;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
 
