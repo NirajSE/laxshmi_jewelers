@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GoldRateController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -32,6 +33,7 @@ Route::middleware('auth')->group(function () {
         return Inertia::render('GoldRate/CreateGoldRate');
     })->name('create-gold-rates');
     
+    Route::resource('products', ProductController::class);
     Route::resource('get-gold-rates', GoldRateController::class);
     Route::get('/get-active-gold-rate', [GoldRateController::class, 'getActiveGoldRate'])->name('get-active-gold-rate');
 
